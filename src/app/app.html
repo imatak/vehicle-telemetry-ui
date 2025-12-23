@@ -1,0 +1,94 @@
+<div class="container">
+
+  <mat-card class="card">
+    <mat-card-title class="title-wrapper">Vehicle Telemetry</mat-card-title>
+
+    <mat-card-content>
+
+      <mat-card *ngIf="error" class="error-card">
+        {{ error }}
+      </mat-card>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Device ID</mat-label>
+        <input matInput [(ngModel)]="deviceId">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Engine RPM</mat-label>
+        <input matInput type="number" [(ngModel)]="engineRPM">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fuel Level (%)</mat-label>
+        <input matInput type="number" [(ngModel)]="fuelLevelPercentage">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Latitude</mat-label>
+        <input matInput type="number" [(ngModel)]="latitude">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Longitude</mat-label>
+        <input matInput type="number" [(ngModel)]="longitude">
+      </mat-form-field>
+
+      <div class="buttons">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="sendTelemetry()">
+          Send Telemetry
+        </button>
+
+        <button
+          mat-stroked-button
+          color="accent"
+          (click)="loadLatest()">
+          Get Latest
+        </button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card" *ngIf="latestTelemetry">
+    <mat-card-title>Latest Telemetry</mat-card-title>
+
+    <mat-card-content>
+
+      <div class="telemetry-row">
+        <span>Device ID</span>
+        <strong>{{ latestTelemetry.deviceId }}</strong>
+      </div>
+
+      <div class="telemetry-row">
+        <span>Timestamp</span>
+        <strong>{{ latestTelemetry.timestamp | date:'medium' }}</strong>
+      </div>
+
+      <div class="telemetry-row">
+        <span>Engine RPM</span>
+        <strong>{{ latestTelemetry.engineRPM }}</strong>
+      </div>
+
+      <div class="telemetry-row">
+        <span>Fuel Level</span>
+        <strong>{{ latestTelemetry.fuelLevelPercentage }} %</strong>
+      </div>
+
+      <div class="telemetry-row">
+        <span>Latitude</span>
+        <strong>{{ latestTelemetry.latitude }}</strong>
+      </div>
+
+      <div class="telemetry-row">
+        <span>Longitude</span>
+        <strong>{{ latestTelemetry.longitude }}</strong>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,46 @@
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.card {
+  margin-bottom: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.title-wrapper {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.error-card {
+  background-color: #fdecea;
+  color: #b00020;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.telemetry-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.telemetry-row span {
+  color: #555;
+}
+
+.telemetry-row strong {
+  font-weight: 600;
+}
